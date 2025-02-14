@@ -2,15 +2,10 @@ import  express  from "express";
 import connectDB from "./config/db";
 const app = express();
 connectDB();
+import userRouter from "./user/userRouter";
 
 
-app.get("/", (req, res, next ) => {
-  
-  res.json({ message: "Hello World" })
-  next();
-
-});
-
+app.use("/api/users", userRouter);
 
 
 export default app;
